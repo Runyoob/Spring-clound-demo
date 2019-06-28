@@ -16,8 +16,11 @@ public class AccessFilter extends ZuulFilter{
 	    //对指定的serviceid过滤，如果要过滤所有服务，直接返回 true
 	    
 		RequestContext ctx = RequestContext.getCurrentContext();
+		//get serviceId
 		String serviceId = (String) ctx.get(FilterConstants.SERVICE_ID_KEY);
+		//判断 "serviceId"=="item-service"
 		if(serviceId.equals("item-service")) {
+			//过滤返回true
 			return true;
 		}
 		return false;
@@ -25,13 +28,18 @@ public class AccessFilter extends ZuulFilter{
 
 	@Override
 	public Object run() throws ZuulException {
+		//当前请求信息
 		RequestContext ctx = RequestContext.getCurrentContext();
+		//获取请求参数
 		HttpServletRequest req = ctx.getRequest();
+		//判断是否有token参数
 		String at = req.getParameter("token");
 		if (at == null) {
 			//此设置会阻止请求被路由到后台微服务
+			//设置不进行路由
 			ctx.setSendZuulResponse(false);
 			ctx.setResponseStatusCode(200);
+			//返回过滤结果400(未登录 )
 			ctx.setResponseBody(JsonResult.err().code(JsonResult.NOT_LOGIN).toString());
 		}
 		//zuul过滤器返回的数据设计为以后扩展使用，
