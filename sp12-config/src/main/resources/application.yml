@@ -1,19 +1,19 @@
 spring:
   application:
     name: config-server
-#  profiles:
-#    active: native
-#    config:
-#      server:
-#        native:
-#          search-locations: classpath:/config
+  profiles:
+    active: native
+    config:
+     server:
+        native:
+         search-locations: classpath:/config
  
-  cloud:
-   config:
-    server:
-     git:
-         uri: https://github.com/Runyoob/Spring-clound-demo #仓库路径
-         searchPaths: sp-configs
+#  cloud:
+#   config:
+#    server:
+#     git:
+#         uri: https://github.com/Runyoob/Spring-clound-demo #仓库路径
+#         searchPaths: sp-configs
           #username: your-username
           #password: your-password
   rabbitmq:
