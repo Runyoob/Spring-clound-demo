@@ -1,21 +1,27 @@
 spring:
   application:
     name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+    
+ # cloud:
+  #  config:
+  #    server:
+   #     git:
+  #        uri: https://github.com/Runyoob/Spring-clound-demo #仓库路径
+   #       searchPaths: config
+          #username: your-username
+          #password: your-password
   rabbitmq:
     host: 192.168.91.131
     port: 5672
     username: admin
-    password: admin 
-    
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/Runyoob/Spring-clound-demo #仓库路径
-          searchPaths: sp-config
-          #username: your-username
-          #password: your-password
-    
+    password: admin  
 server:
   port: 6001
     
@@ -23,7 +29,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
-      
+  
 management:
   endpoints:
     web:
