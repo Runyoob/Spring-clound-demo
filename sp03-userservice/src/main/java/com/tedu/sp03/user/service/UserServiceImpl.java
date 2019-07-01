@@ -16,7 +16,7 @@ import com.tedu.sp01.service.UserService;
 import com.tedu.web.util.JsonUtil;
 
 import lombok.extern.slf4j.Slf4j;
-@RefreshScope
+@RefreshScope//新数据重新注入，提高效率
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
