@@ -23,7 +23,6 @@ zuul:
 #    item-service: /item-service/**
 #    user-service: /user-service/**
 #    order-service: /order-service/**
-
 #暴露监控端点
 management:
   endpoints:
