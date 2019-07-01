@@ -8,7 +8,7 @@ spring:
       server:
         native:
           search-locations: classpath:/config
-    
+ 
  # cloud:
   #  config:
   #    server:
@@ -24,6 +24,7 @@ spring:
     password: admin  
 server:
   port: 6001
+    
     
 eureka:
   client:

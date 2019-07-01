@@ -5,7 +5,10 @@ spring:
     host: 192.168.91.131
     port: 5672
     username: admin
-    password: admin  
+    password: admin 
+  sleuth:
+    sampler:
+      probability: 0.1 
 #server:
 #  port: 8001
 eureka:
